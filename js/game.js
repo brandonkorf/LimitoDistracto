@@ -49,9 +49,7 @@ function initGame(){
     ballBd.position.Set(20,0);  
     player.object = world.CreateBody(ballBd);  
       
-}  
-  
-<p> Inside <code>box2dutils.js</code>, we've created a function, called <code>createBox</code>. This creates a static rectangle body. </p>  
+}   
  
 function createBox(world, x, y, width, height, fixed, userData) { 
     if (typeof(fixed) == 'undefined') fixed = true;  
@@ -78,6 +76,15 @@ function step() {
     var timeStep = 1.0/60;  
     var iteration = 1;  
     
+	   
+	if (player.object.GetCenterPosition().y > canvasHeight){  
+		player.object.SetCenterPosition(new b2Vec2(20,0),0)  
+    }     
+	else if (player.object.GetCenterPosition().x > canvasWidth-50){  
+		showWin();  
+		return;   
+	} 
+	
 	handleInteractions();  
 	// 1  
     world.Step(timeStep, iteration);  
@@ -128,8 +135,16 @@ function handleInteractions(){
     }  
     else if (keys[39]){  
         vel.x = 60;  
-    }  
-      
+    }   
     // 5  
     player.object.SetLinearVelocity(vel);  
+}  
+
+function showWin(){  
+    ctx.fillStyle    = '#000';  
+    ctx.font         = '30px verdana';  
+    ctx.textBaseline = 'top';  
+    ctx.fillText('Balls!', 30, 0);  
+    ctx.fillText('thank you, andersonferminiano.com', 30, 30);  
+    ctx.fillText('@andferminiano', 30, 60);   
 }  
