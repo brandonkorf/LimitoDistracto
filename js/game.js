@@ -146,19 +146,19 @@ function handleInteractions(){
     // 2  
     var vel = player.object.GetLinearVelocity();  
     // 3  
-    if (keys[38] || keys[87]){  //up
+    if (keys[87]){  //up
         vel.y = -150;     
     }  
-	else if(keys[40] || keys[83]){  //down
+	else if(keys[83]){  //down
         vel.y = 150;     
     }  
       
     // 4  
     // left/right arrows  
-    if (keys[37] || keys[65]){  
+    if (keys[65]){  
         vel.x = -60;  
     }  
-    else if (keys[39] || keys[68]){  
+    else if (keys[68]){  
         vel.x = 60;  
     }  
     // 5  
@@ -169,19 +169,19 @@ function handleInteractions(){
 	// 2  
     var vel2 = player.object2.GetLinearVelocity(); 	
     // 3  
-    if (keys[79]){  //up
+    if (keys[38] || keys[79]){  //up
         vel2.y = -150;     
     }  
-	else if(keys[76]){  //down
+	else if(keys[40] || keys[76]){  //down
         vel2.y = 150;     
     }  
       
     // 4  
     // left/right arrows  
-    if (keys[75]){  
+    if (keys[37] || keys[75]){  
         vel2.x = -60;  
     }  
-    else if (keys[59]){  
+    else if (keys[39] || keys[59]){  
         vel2.x = 60;  
     }  
     // 5  
